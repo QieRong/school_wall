@@ -1,0 +1,48 @@
+server:
+  port: ${SERVER_PORT:19090}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 【安全优化】支持环境变量配置，生产环境请设置环境变量
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:biaobaiqiang}?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+
+# 【安全优化】文件上传路径配置，支持环境变量
+file:
+  # 本地开发：使用相对路径 ./files/
+  # 生产环境：设置环境变量 FILE_UPLOAD_PATH=/data/files/
+  upload-path: ${FILE_UPLOAD_PATH:./files/}
+
+# 文件访问基础URL配置
+# 开发环境：使用后端地址
+# 生产环境：通过环境变量FILE_BASE_URL设置
+fileBaseUrl: ${FILE_BASE_URL:http://localhost:19090}
+
+# 【安全优化】JWT配置，生产环境请设置环境变量
+jwt:
+  # 使用强密钥（至少32位），生产环境请通过环境变量JWT_SECRET设置
+  secret: ${JWT_SECRET:ZhangJiaJie_College_Confession_Wall_2024_Strong_Secret_Key_For_JWT_Token}
+  # 过期时间：7天 = 604800000毫秒
+  expiration: ${JWT_EXPIRATION:604800000}
+
+# DeepSeek AI 配置
+deepseek:
+  # 【必须】通过环境变量 DEEPSEEK_API_KEY 设置，严禁在此处填写明文密钥
+  # 本地开发：在 IDE 的运行配置中添加环境变量，或在系统环境变量中设置
+  api-key: ${DEEPSEEK_API_KEY}
+  api-url: ${DEEPSEEK_API_URL:https://api.deepseek.com/v1/chat/completions}
+  model: ${DEEPSEEK_MODEL:deepseek-chat}
+  # 每用户每天最大调用次数
+  daily-limit: ${DEEPSEEK_DAILY_LIMIT:10}

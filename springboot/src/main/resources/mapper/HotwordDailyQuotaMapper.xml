@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.HotwordDailyQuotaMapper">
+
+    <!-- 获取用户今日剩余票数 -->
+    <select id="selectRemainingVotes" resultType="java.lang.Integer">
+        SELECT remaining_votes FROM hotword_daily_quota
+        WHERE user_id = #{userId} AND vote_date = #{voteDate}
+    </select>
+
+    <!-- 使用行锁获取用户今日剩余票数（用于并发安全） -->
+    <select id="selectRemainingVotesForUpdate" resultType="java.lang.Integer">
+        SELECT remaining_votes FROM hotword_daily_quota
+        WHERE user_id = #{userId} AND vote_date = #{voteDate}
+        FOR UPDATE
+    </select>
+
+    <!-- 扣减用户票数 -->
+    <update id="decreaseVotes">
+        UPDATE hotword_daily_quota
+        SET remaining_votes = remaining_votes - #{count}
+        WHERE user_id = #{userId}
+          AND vote_date = #{voteDate}
+          AND remaining_votes >= #{count}
+    </update>
+
+    <!-- 初始化或更新用户今日配额 -->
+    <insert id="insertOrUpdate">
+        INSERT INTO hotword_daily_quota (user_id, vote_date, remaining_votes)
+        VALUES (#{userId}, #{voteDate}, #{remainingVotes})
+        ON DUPLICATE KEY UPDATE remaining_votes = #{remainingVotes}
+    </insert>
+
+    <!-- 删除过期的配额记录 -->
+    <delete id="deleteExpiredQuotas">
+        DELETE FROM hotword_daily_quota WHERE vote_date &lt; #{beforeDate}
+    </delete>
+
+</mapper>

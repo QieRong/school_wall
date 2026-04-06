@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StoryParagraphMapper">
+
+    <!-- 查询故事段落列表(带作者信息和点赞状态) -->
+    <select id="selectParagraphList" resultType="com.example.dto.ParagraphVO">
+        SELECT
+            sp.id,
+            sp.story_id AS storyId,
+            sp.content,
+            sp.image_url AS imageUrl,
+            sp.author_id AS authorId,
+            u.nickname AS authorNickname,
+            u.avatar AS authorAvatar,
+            sp.pen_name AS penName,
+            sp.sequence,
+            sp.like_count AS likeCount,
+            sp.is_hot AS isHot,
+            sp.is_key_point AS isKeyPoint,
+            sp.parent_id AS parentId,
+            sp.branch_name AS branchName,
+            sp.create_time AS createTime,
+            sp.is_ai_assisted AS isAiAssisted,
+            <if test="userId != null">
+                CASE WHEN pl.id IS NOT NULL THEN TRUE ELSE FALSE END AS isLikedByMe
+            </if>
+            <if test="userId == null">
+                FALSE AS isLikedByMe
+            </if>
+        FROM story_paragraph sp
+        LEFT JOIN sys_user u ON sp.author_id = u.id
+        <if test="userId != null">
+            LEFT JOIN paragraph_like pl ON sp.id = pl.paragraph_id AND pl.user_id = #{userId}
+        </if>
+        WHERE sp.story_id = #{storyId}
+        ORDER BY sp.sequence ASC
+    </select>
+
+    <!-- 查询用户的所有段落 -->
+    <select id="selectUserParagraphs" resultType="com.example.dto.ParagraphVO">
+        SELECT
+            sp.id,
+            sp.story_id AS storyId,
+            sp.content,
+            sp.image_url AS imageUrl,
+            sp.author_id AS authorId,
+            u.nickname AS authorNickname,
+            u.avatar AS authorAvatar,
+            sp.pen_name AS penName,
+            sp.sequence,
+            sp.like_count AS likeCount,
+            sp.is_hot AS isHot,
+            sp.is_key_point AS isKeyPoint,
+            sp.parent_id AS parentId,
+            sp.branch_name AS branchName,
+            sp.create_time AS createTime,
+            sp.is_ai_assisted AS isAiAssisted,
+            s.title AS storyTitle
+        FROM story_paragraph sp
+        LEFT JOIN sys_user u ON sp.author_id = u.id
+        LEFT JOIN story s ON sp.story_id = s.id
+        WHERE sp.author_id = #{userId}
+        ORDER BY sp.create_time DESC
+    </select>
+
+    <!-- 获取故事最新段落的作者ID -->
+    <select id="selectLastAuthorId" resultType="java.lang.Long">
+        SELECT author_id FROM story_paragraph
+        WHERE story_id = #{storyId}
+        ORDER BY sequence DESC
+        LIMIT 1
+    </select>
+
+    <!-- 获取用户在故事中最后续写的时间 -->
+    <select id="selectLastWriteTime" resultType="java.time.LocalDateTime">
+        SELECT create_time FROM story_paragraph
+        WHERE story_id = #{storyId} AND author_id = #{userId}
+        ORDER BY create_time DESC
+        LIMIT 1
+    </select>
+
+    <!-- 获取故事当前最大序号 -->
+    <select id="selectMaxSequence" resultType="java.lang.Integer">
+        SELECT COALESCE(MAX(sequence), 0) FROM story_paragraph
+        WHERE story_id = #{storyId}
+    </select>
+
+    <!-- 统计今日新增段落数 -->
+    <select id="countTodayNewParagraphs" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM story_paragraph
+        WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <!-- 统计7天内活跃用户数 -->
+    <select id="countActiveUsers" resultType="java.lang.Long">
+        SELECT COUNT(DISTINCT author_id) FROM story_paragraph
+        WHERE create_time >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+    </select>
+
+</mapper>

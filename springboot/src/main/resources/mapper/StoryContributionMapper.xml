@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StoryContributionMapper">
+
+    <!-- 获取用户在故事中的排名 -->
+    <select id="selectUserRank" resultType="java.lang.Integer">
+        SELECT ranking FROM (
+            SELECT user_id, RANK() OVER (ORDER BY points DESC) AS ranking
+            FROM story_contribution
+            WHERE story_id = #{storyId}
+        ) ranked
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 获取用户总贡献度 -->
+    <select id="selectUserTotalPoints" resultType="java.lang.Integer">
+        SELECT COALESCE(SUM(points), 0) FROM story_contribution
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 获取总贡献度排名第一的用户ID -->
+    <select id="selectTopContributor" resultType="java.lang.Long">
+        SELECT user_id FROM story_contribution
+        GROUP BY user_id
+        ORDER BY SUM(points) DESC
+        LIMIT 1
+    </select>
+
+</mapper>

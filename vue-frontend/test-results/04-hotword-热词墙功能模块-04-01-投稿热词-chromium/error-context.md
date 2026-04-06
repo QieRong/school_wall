@@ -1,0 +1,79 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - button "← 返回首页" [ref=e6] [cursor=pointer]:
+      - generic [ref=e7]: ←
+      - text: 返回首页
+    - heading "🔥 校园热词墙" [level=1] [ref=e8]
+  - generic [ref=e12]:
+    - heading "🏆 热词榜" [level=2] [ref=e14]
+    - generic [ref=e15]:
+      - button "日榜" [ref=e16] [cursor=pointer]
+      - button "周榜" [ref=e17] [cursor=pointer]
+      - button "月榜" [ref=e18] [cursor=pointer]
+      - button "总榜" [ref=e19] [cursor=pointer]
+    - generic [ref=e20]:
+      - generic [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 🥇
+        - generic [ref=e23]:
+          - generic [ref=e24]: 张院
+          - text: 0票
+        - generic [ref=e25]: "-"
+      - generic [ref=e26] [cursor=pointer]:
+        - generic [ref=e27]: 🥈
+        - generic [ref=e28]:
+          - generic [ref=e29]: 大白鹅
+          - text: 0票
+        - generic [ref=e30]: "-"
+  - generic [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e33]: 🔥
+      - generic [ref=e34]: 今日剩余 5 票
+    - button "✏️ 投稿热词" [active] [ref=e35] [cursor=pointer]
+    - button "我的 ▼" [ref=e37] [cursor=pointer]
+  - generic [ref=e39]:
+    - button "×" [ref=e40] [cursor=pointer]
+    - heading "📝 投稿热词" [level=2] [ref=e41]
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - text: 热词名称
+          - generic [ref=e45]: 0/10
+        - textbox "输入热词..." [ref=e46]
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - text: 释义
+          - generic [ref=e49]: "*"
+          - generic [ref=e50]: 0/200
+        - textbox "这个词是什么意思..." [ref=e51]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - text: 例句
+          - generic [ref=e54]: 0/100
+        - textbox "举个例子..." [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - text: 标签
+          - generic [ref=e58]: (选择1-3个)
+        - generic [ref=e59]:
+          - generic [ref=e60] [cursor=pointer]: 老师梗
+          - generic [ref=e61] [cursor=pointer]: 地点梗
+          - generic [ref=e62] [cursor=pointer]: 事件梗
+          - generic [ref=e63] [cursor=pointer]: 食堂梗
+          - generic [ref=e64] [cursor=pointer]: 宿舍梗
+          - generic [ref=e65] [cursor=pointer]: 考试梗
+          - generic [ref=e66] [cursor=pointer]: 社团梗
+          - generic [ref=e67] [cursor=pointer]: 恋爱梗
+          - generic [ref=e68] [cursor=pointer]: 图书馆
+          - generic [ref=e69] [cursor=pointer]: 体育馆
+          - generic [ref=e70] [cursor=pointer]: 校园日常
+          - generic [ref=e71] [cursor=pointer]: 其他
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - text: 配图
+          - generic [ref=e74]: (可选，最大10MB)
+        - button "📷 上传图片" [ref=e76] [cursor=pointer]
+      - button "🚀 发射上墙" [ref=e77] [cursor=pointer]
+```

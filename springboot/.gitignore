@@ -1,0 +1,35 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# 生产环境配置（包含敏感信息，不要提交）
+application-prod.yml
+application-local.yml
+*.local.yml
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 上传的文件
+files/
+uploads/

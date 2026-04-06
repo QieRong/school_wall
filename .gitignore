@@ -1,0 +1,15 @@
+# ========================================================
+# 项目根目录 .gitignore
+# ========================================================
+
+# 临时与中间文件
+tmp_result.txt
+*.tmp
+*.bak
+
+# 敏感配置（子模块各自的 .gitignore 也有覆盖）
+**/.env.local
+**/.env.*.local
+**/application-local.yml
+**/application-prod.yml
+**/*.local.yml

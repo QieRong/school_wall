@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.HotwordMapper">
+
+    <!-- 获取热词列表（带作者信息） -->
+    <select id="selectHotwordList" resultType="com.example.dto.HotwordVO">
+        SELECT h.id, h.name, h.definition, h.example, h.tags, h.image_url as imageUrl,
+               h.total_votes as totalVotes, h.status, h.is_recommended as isRecommended,
+               h.user_id as userId, h.create_time as createTime,
+               u.nickname as authorNickname, u.avatar as authorAvatar
+        FROM hotword h
+        LEFT JOIN sys_user u ON h.user_id = u.id
+        <where>
+            <if test="status != null">
+                h.status = #{status}
+            </if>
+        </where>
+        ORDER BY h.total_votes DESC, h.create_time DESC
+    </select>
+
+    <!-- 获取榜单数据 -->
+    <select id="selectRanking" resultType="com.example.dto.RankingVO">
+        SELECT h.id, h.name, h.total_votes as totalVotes, h.is_recommended as isRecommended,
+               COALESCE(SUM(v.vote_count), 0) as periodVotes
+        FROM hotword h
+        LEFT JOIN hotword_vote v ON h.id = v.hotword_id
+        <where>
+            h.status = 1
+            <if test="type == 'day'">
+                AND (v.create_time IS NULL OR v.create_time >= DATE_SUB(NOW(), INTERVAL 1 DAY))
+            </if>
+            <if test="type == 'week'">
+                AND (v.create_time IS NULL OR v.create_time >= DATE_SUB(NOW(), INTERVAL 7 DAY))
+            </if>
+            <if test="type == 'month'">
+                AND (v.create_time IS NULL OR v.create_time >= DATE_SUB(NOW(), INTERVAL 30 DAY))
+            </if>
+        </where>
+        GROUP BY h.id, h.name, h.total_votes, h.is_recommended
+        ORDER BY 
+        <choose>
+            <when test="type == 'all'">h.total_votes</when>
+            <otherwise>periodVotes</otherwise>
+        </choose>
+        DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 获取上一周期的排名 -->
+    <select id="selectPreviousRanking" resultType="com.example.dto.RankingVO">
+        SELECT h.id, h.name, h.total_votes as totalVotes,
+               COALESCE(SUM(v.vote_count), 0) as periodVotes
+        FROM hotword h
+        LEFT JOIN hotword_vote v ON h.id = v.hotword_id
+        <where>
+            h.status = 1
+            <if test="type == 'day'">
+                AND v.create_time >= DATE_SUB(NOW(), INTERVAL 2 DAY)
+                AND v.create_time &lt; DATE_SUB(NOW(), INTERVAL 1 DAY)
+            </if>
+            <if test="type == 'week'">
+                AND v.create_time >= DATE_SUB(NOW(), INTERVAL 14 DAY)
+                AND v.create_time &lt; DATE_SUB(NOW(), INTERVAL 7 DAY)
+            </if>
+            <if test="type == 'month'">
+                AND v.create_time >= DATE_SUB(NOW(), INTERVAL 60 DAY)
+                AND v.create_time &lt; DATE_SUB(NOW(), INTERVAL 30 DAY)
+            </if>
+        </where>
+        GROUP BY h.id, h.name, h.total_votes
+        ORDER BY periodVotes DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 搜索热词 -->
+    <select id="searchHotwords" resultType="com.example.dto.HotwordVO">
+        SELECT h.id, h.name, h.definition, h.example, h.tags, h.image_url as imageUrl,
+               h.total_votes as totalVotes, h.status, h.is_recommended as isRecommended,
+               h.user_id as userId, h.create_time as createTime,
+               u.nickname as authorNickname, u.avatar as authorAvatar
+        FROM hotword h
+        LEFT JOIN sys_user u ON h.user_id = u.id
+        WHERE h.name LIKE CONCAT('%', #{keyword}, '%')
+           OR h.definition LIKE CONCAT('%', #{keyword}, '%')
+           OR h.tags LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY h.status ASC, h.total_votes DESC
+    </select>
+
+    <!-- 获取用户投稿的热词 -->
+    <select id="selectByUserId" resultType="com.example.dto.HotwordVO">
+        SELECT h.id, h.name, h.definition, h.example, h.tags, h.image_url as imageUrl,
+               h.total_votes as totalVotes, h.status, h.is_recommended as isRecommended,
+               h.user_id as userId, h.create_time as createTime,
+               u.nickname as authorNickname, u.avatar as authorAvatar
+        FROM hotword h
+        LEFT JOIN sys_user u ON h.user_id = u.id
+        WHERE h.user_id = #{userId}
+        ORDER BY h.create_time DESC
+    </select>
+
+    <!-- 获取需要归档的热词ID -->
+    <select id="selectExpiredHotwordIds" resultType="java.lang.Long">
+        SELECT id FROM hotword
+        WHERE status = 1
+          AND (last_vote_time IS NULL OR last_vote_time &lt; #{expireTime})
+          AND create_time &lt; #{expireTime}
+    </select>
+
+    <!-- 批量归档热词 -->
+    <update id="batchArchive">
+        UPDATE hotword SET status = 2
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <!-- 获取热词详情 -->
+    <select id="selectDetailById" resultType="com.example.dto.HotwordVO">
+        SELECT h.id, h.name, h.definition, h.example, h.tags, h.image_url as imageUrl,
+               h.total_votes as totalVotes, h.status, h.is_recommended as isRecommended,
+               h.user_id as userId, h.create_time as createTime,
+               u.nickname as authorNickname, u.avatar as authorAvatar
+        FROM hotword h
+        LEFT JOIN sys_user u ON h.user_id = u.id
+        WHERE h.id = #{id}
+    </select>
+
+</mapper>

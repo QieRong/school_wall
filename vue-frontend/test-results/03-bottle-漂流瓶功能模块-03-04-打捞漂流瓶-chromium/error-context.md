@@ -1,0 +1,70 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - banner:
+          - generic:
+            - button:
+              - img
+              - text: 返回
+            - heading [level=1]:
+              - img
+              - text: 漂流瓶
+        - generic:
+          - generic:
+            - button:
+              - img
+              - text: 海洋
+            - button:
+              - img
+              - text: 我的瓶子
+            - button:
+              - img
+              - text: 珍藏馆
+            - button:
+              - img
+              - text: 成就
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - generic: 🍾
+            - paragraph: 将心事装进瓶子，让它漂向远方...
+            - generic:
+              - button:
+                - img
+                - text: 投放瓶子
+              - button [disabled]:
+                - img
+                - generic:
+                  - generic:
+                    - img
+                  - text: 46s
+  - dialog "捞到一个漂流瓶！" [ref=e2]:
+    - heading "捞到一个漂流瓶！" [level=2] [ref=e4]:
+      - img [ref=e5]
+      - text: 捞到一个漂流瓶！
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - img [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]: 张院0205
+          - generic [ref=e14]: 2025-12-20 16:23:57
+      - paragraph [ref=e16]: 食堂三楼的那个学姐，你的笑容真的很治愈，每次看到你我的心情都会变好。
+      - generic [ref=e17]:
+        - button "回复" [active] [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+          - text: 回复
+        - button "放回" [ref=e21] [cursor=pointer]:
+          - img [ref=e22]
+          - text: 放回
+        - button "珍藏" [ref=e25] [cursor=pointer]:
+          - img [ref=e26]
+          - text: 珍藏
+    - button "Close" [ref=e28] [cursor=pointer]:
+      - img [ref=e29]
+      - generic [ref=e32]: Close
+```

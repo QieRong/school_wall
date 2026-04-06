@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.DashboardMapper">
+
+    <!-- 用户统计查询 -->
+    <select id="countTotalUsers" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM sys_user WHERE role = 'USER'
+    </select>
+
+    <select id="countTodayNewUsers" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM sys_user 
+        WHERE role = 'USER' AND DATE(create_time) = CURDATE()
+    </select>
+
+    <select id="countTodayActiveUsers" resultType="java.lang.Integer">
+        SELECT COUNT(DISTINCT user_id) FROM (
+            SELECT user_id FROM post WHERE DATE(create_time) = CURDATE()
+            UNION
+            SELECT user_id FROM comment WHERE DATE(create_time) = CURDATE()
+            UNION
+            SELECT user_id FROM interaction WHERE type = 1 AND DATE(create_time) = CURDATE()
+        ) AS active_users
+    </select>
+
+    <select id="selectUserTrend" resultType="java.util.Map">
+        SELECT DATE(create_time) as date, COUNT(*) as value
+        FROM sys_user
+        WHERE role = 'USER' AND create_time >= DATE_SUB(CURDATE(), INTERVAL #{days} DAY)
+        GROUP BY DATE(create_time)
+        ORDER BY date ASC
+    </select>
+
+    <select id="selectCreditDistribution" resultType="java.util.Map">
+        SELECT 
+            CASE 
+                WHEN IFNULL(credit_score, 100) BETWEEN 0 AND 20 THEN '0-20'
+                WHEN IFNULL(credit_score, 100) BETWEEN 21 AND 40 THEN '21-40'
+                WHEN IFNULL(credit_score, 100) BETWEEN 41 AND 60 THEN '41-60'
+                WHEN IFNULL(credit_score, 100) BETWEEN 61 AND 80 THEN '61-80'
+                ELSE '81-100'
+            END as segment,
+            COUNT(*) as count
+        FROM sys_user
+        WHERE role = 'USER'
+        GROUP BY segment
+        ORDER BY segment
+    </select>
+
+    <!-- 今日发帖数 -->
+    <select id="countTodayPosts" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <!-- 今日互动数（评论+点赞） -->
+    <select id="countTodayInteractions" resultType="java.lang.Integer">
+        SELECT 
+            (SELECT COUNT(*) FROM comment WHERE DATE(create_time) = CURDATE()) +
+            (SELECT COUNT(*) FROM interaction WHERE type = 1 AND DATE(create_time) = CURDATE())
+        AS total
+    </select>
+
+    <!-- 昨日发帖数 -->
+    <select id="countYesterdayPosts" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post WHERE DATE(create_time) = DATE_SUB(CURDATE(), INTERVAL 1 DAY)
+    </select>
+
+    <!-- 昨日互动数 -->
+    <select id="countYesterdayInteractions" resultType="java.lang.Integer">
+        SELECT 
+            (SELECT COUNT(*) FROM comment WHERE DATE(create_time) = DATE_SUB(CURDATE(), INTERVAL 1 DAY)) +
+            (SELECT COUNT(*) FROM interaction WHERE type = 1 AND DATE(create_time) = DATE_SUB(CURDATE(), INTERVAL 1 DAY))
+        AS total
+    </select>
+
+    <!-- 用户分层查询 -->
+    <select id="countCreators" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM (
+            SELECT user_id FROM post 
+            WHERE status = 1
+            GROUP BY user_id 
+            HAVING COUNT(*) >= #{minPosts}
+        ) AS creators
+    </select>
+
+    <select id="countInteractors" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM (
+            SELECT user_id FROM comment 
+            GROUP BY user_id 
+            HAVING COUNT(*) >= #{minComments}
+        ) AS interactors
+    </select>
+
+    <!-- 用户排行查询 -->
+    <select id="selectTopLikedUsers" resultType="java.util.Map">
+        SELECT u.id as userId, u.nickname, u.avatar, IFNULL(SUM(p.like_count), 0) as value
+        FROM sys_user u
+        LEFT JOIN post p ON u.id = p.user_id AND p.status = 1
+        WHERE u.role = 'USER'
+        GROUP BY u.id, u.nickname, u.avatar
+        ORDER BY value DESC
+        LIMIT #{limit}
+    </select>
+
+    <select id="selectTopReporters" resultType="java.util.Map">
+        SELECT u.id as userId, u.nickname, u.avatar, COUNT(r.id) as value
+        FROM sys_user u
+        LEFT JOIN sys_report r ON u.id = r.user_id AND r.status = 1
+        WHERE u.role = 'USER'
+        GROUP BY u.id, u.nickname, u.avatar
+        ORDER BY value DESC
+        LIMIT #{limit}
+    </select>
+
+    <select id="selectTopCommenters" resultType="java.util.Map">
+        SELECT u.id as userId, u.nickname, u.avatar, COUNT(c.id) as value
+        FROM sys_user u
+        LEFT JOIN comment c ON u.id = c.user_id
+        WHERE u.role = 'USER'
+        GROUP BY u.id, u.nickname, u.avatar
+        ORDER BY value DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 内容统计查询 -->
+    <select id="countPendingAudit" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post WHERE status = 0
+    </select>
+
+    <select id="countTodayAudited" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post 
+        WHERE status IN (1, 2) AND DATE(create_time) = CURDATE()
+    </select>
+
+    <select id="countTodayPassed" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post 
+        WHERE status = 1 AND DATE(create_time) = CURDATE()
+    </select>
+
+    <select id="selectSensitiveWordStats" resultType="java.util.Map">
+        SELECT word, COUNT(*) as count
+        FROM sensitive_word_log
+        WHERE create_time >= DATE_SUB(NOW(), INTERVAL #{days} DAY)
+        GROUP BY word
+        ORDER BY count DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 举报统计查询 -->
+    <select id="countPendingReports" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM sys_report WHERE status = 0
+    </select>
+
+    <select id="countTodayReports" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM sys_report WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <select id="countHandledReports" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM sys_report WHERE status != 0
+    </select>
+
+    <select id="selectReportDistribution" resultType="java.util.Map">
+        SELECT reason as type, COUNT(*) as count
+        FROM sys_report
+        GROUP BY reason
+        ORDER BY count DESC
+    </select>
+
+    <!-- 安全警报查询 -->
+    <select id="selectHighReportPosts" resultType="java.util.Map">
+        SELECT post_id as postId, COUNT(*) as reportCount
+        FROM sys_report
+        WHERE post_id IS NOT NULL AND create_time >= DATE_SUB(NOW(), INTERVAL #{minutes} MINUTE)
+        GROUP BY post_id
+        HAVING COUNT(*) > #{threshold}
+    </select>
+
+    <select id="selectSpamUsers" resultType="java.util.Map">
+        SELECT user_id as userId, COUNT(*) as postCount
+        FROM post
+        WHERE create_time >= DATE_SUB(NOW(), INTERVAL #{minutes} MINUTE)
+        GROUP BY user_id
+        HAVING COUNT(*) > #{threshold}
+    </select>
+
+    <!-- 时间维度查询 -->
+    <select id="selectHourlyPosts" resultType="java.util.Map">
+        SELECT HOUR(create_time) as hour, COUNT(*) as count
+        FROM post
+        WHERE DATE(create_time) = CURDATE()
+        GROUP BY HOUR(create_time)
+        ORDER BY hour
+    </select>
+
+    <select id="selectHourlyComments" resultType="java.util.Map">
+        SELECT HOUR(create_time) as hour, COUNT(*) as count
+        FROM comment
+        WHERE DATE(create_time) = CURDATE()
+        GROUP BY HOUR(create_time)
+        ORDER BY hour
+    </select>
+
+    <!-- 词云查询 -->
+    <select id="selectPostContents" resultType="java.util.Map">
+        SELECT id, content FROM post
+        WHERE status = 1 AND create_time >= DATE_SUB(NOW(), INTERVAL #{days} DAY)
+    </select>
+
+    <!-- 周对比查询 -->
+    <select id="countPostsBetween" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM post
+        WHERE status = 1 AND DATE(create_time) BETWEEN #{startDate} AND #{endDate}
+    </select>
+
+    <select id="countActiveUsersBetween" resultType="java.lang.Integer">
+        SELECT COUNT(DISTINCT user_id) FROM (
+            SELECT user_id FROM post WHERE DATE(create_time) BETWEEN #{startDate} AND #{endDate}
+            UNION
+            SELECT user_id FROM comment WHERE DATE(create_time) BETWEEN #{startDate} AND #{endDate}
+        ) AS active_users
+    </select>
+
+    <select id="countInteractionsBetween" resultType="java.lang.Integer">
+        SELECT 
+            (SELECT COUNT(*) FROM comment WHERE DATE(create_time) BETWEEN #{startDate} AND #{endDate}) +
+            (SELECT COUNT(*) FROM interaction WHERE type = 1 AND DATE(create_time) BETWEEN #{startDate} AND #{endDate})
+        AS total
+    </select>
+
+</mapper>

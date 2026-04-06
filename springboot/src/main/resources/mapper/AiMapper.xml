@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.AiMapper">
+
+    <select id="countTodayUsage" resultType="int">
+        SELECT COUNT(*) FROM ai_usage 
+        WHERE user_id = #{userId} AND usage_date = #{date}
+    </select>
+
+    <insert id="insertUsage" parameterType="com.example.entity.AiUsage">
+        INSERT INTO ai_usage (user_id, type, prompt, result, usage_date, create_time)
+        VALUES (#{userId}, #{type}, #{prompt}, #{result}, #{usageDate}, #{createTime})
+    </insert>
+
+</mapper>

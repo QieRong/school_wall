@@ -1,0 +1,549 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+        - generic [ref=e9]:
+          - generic [ref=e10]: 张家界学院
+          - generic [ref=e11]: 表白墙
+      - textbox "🔍 搜索你感兴趣的内容..." [ref=e16]
+      - generic [ref=e17]:
+        - generic [ref=e19]:
+          - button "私信" [ref=e20] [cursor=pointer]:
+            - img [ref=e21]
+          - button "系统通知" [ref=e23] [cursor=pointer]:
+            - img [ref=e24]
+        - generic [ref=e28] [cursor=pointer]:
+          - img [ref=e30]
+          - generic [ref=e32]: 张院0241
+  - main [ref=e33]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e40]:
+          - img [ref=e42] [cursor=pointer]
+          - heading "张院0241" [level=3] [ref=e43]
+          - paragraph [ref=e44]: 张院认证用户
+          - generic [ref=e46]:
+            - generic [ref=e47] [cursor=pointer]:
+              - generic [ref=e48]: "0"
+              - generic [ref=e49]: 关注
+            - generic [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]: "0"
+              - generic [ref=e52]: 粉丝
+            - generic [ref=e53] [cursor=pointer]:
+              - generic [ref=e54]: "0"
+              - generic [ref=e55]: 获赞
+        - navigation [ref=e56]:
+          - button "推荐广场" [ref=e57] [cursor=pointer]:
+            - img [ref=e59]
+            - text: 推荐广场
+          - button "我的关注" [ref=e62] [cursor=pointer]:
+            - img [ref=e64]
+            - text: 我的关注
+          - generic [ref=e67]: 分区浏览
+          - button "表白专区" [active] [ref=e68] [cursor=pointer]:
+            - img [ref=e70]
+            - text: 表白专区
+          - button "寻物专区" [ref=e72] [cursor=pointer]:
+            - img [ref=e74]
+            - text: 寻物专区
+          - button "闲置专区" [ref=e77] [cursor=pointer]:
+            - img [ref=e79]
+            - text: 闲置专区
+          - button "吐槽专区" [ref=e82] [cursor=pointer]:
+            - img [ref=e84]
+            - text: 吐槽专区
+          - button "活动专区" [ref=e86] [cursor=pointer]:
+            - img [ref=e88]
+            - text: 活动专区
+          - button "求助专区" [ref=e91] [cursor=pointer]:
+            - img [ref=e93]
+            - text: 求助专区
+          - button "其他专区" [ref=e96] [cursor=pointer]:
+            - img [ref=e98]
+            - text: 其他专区
+          - button "表白热力图" [ref=e103] [cursor=pointer]:
+            - img [ref=e105]
+            - text: 表白热力图
+          - button "协作故事链" [ref=e107] [cursor=pointer]:
+            - img [ref=e109]
+            - text: 协作故事链
+          - button "漂流瓶" [ref=e111] [cursor=pointer]:
+            - img [ref=e113]
+            - text: 漂流瓶
+          - button "热词墙" [ref=e116] [cursor=pointer]:
+            - img [ref=e118]
+            - text: 热词墙
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e124]:
+            - img "图书馆闭馆通知" [ref=e125]
+            - heading "图书馆闭馆通知" [level=3] [ref=e128]
+          - button [ref=e129] [cursor=pointer]:
+            - img [ref=e130]
+          - button [ref=e132] [cursor=pointer]:
+            - img [ref=e133]
+          - generic [ref=e135]:
+            - button [ref=e136] [cursor=pointer]
+            - button [ref=e137] [cursor=pointer]
+            - button [ref=e138] [cursor=pointer]
+        - generic [ref=e140] [cursor=pointer]:
+          - img [ref=e142]
+          - generic [ref=e143]: 分享你的校园生活... (点击发布)
+        - generic [ref=e144] [cursor=pointer]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - img [ref=e148]
+              - generic [ref=e149]:
+                - generic [ref=e150]:
+                  - text: 张院0203
+                  - generic [ref=e151]: 表白
+                - generic [ref=e152]:
+                  - generic [ref=e153]: 2025/12/15 16:18:32
+                  - generic [ref=e154]:
+                    - img [ref=e155]
+                    - text: 学生活动中心
+            - button [ref=e158]:
+              - img [ref=e159]
+          - generic [ref=e163]:
+            - paragraph [ref=e164]: 每次在食堂遇见你，我都会故意走你那条路。今天终于鼓起勇气来表白了！💕
+            - generic [ref=e165]:
+              - img [ref=e167]
+              - img [ref=e169]
+          - generic [ref=e170]:
+            - button "3" [ref=e171]:
+              - img [ref=e172]
+              - generic [ref=e174]: "3"
+            - button "6" [ref=e175]:
+              - img [ref=e176]
+              - generic [ref=e178]: "6"
+            - button "0" [ref=e179]:
+              - img [ref=e180]
+              - generic [ref=e186]: "0"
+        - generic [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - img [ref=e191]
+              - generic [ref=e192]:
+                - generic [ref=e193]:
+                  - text: 张院0204
+                  - generic [ref=e194]: 表白
+                - generic [ref=e196]: 2025/12/13 16:18:32
+            - button [ref=e197]:
+              - img [ref=e198]
+          - paragraph [ref=e203]: 【垃圾广告】各种证件办理，身份证、毕业证、学位证都可以办！
+          - generic [ref=e204]:
+            - button "4" [ref=e205]:
+              - img [ref=e206]
+              - generic [ref=e208]: "4"
+            - button "1" [ref=e209]:
+              - img [ref=e210]
+              - generic [ref=e212]: "1"
+            - button "0" [ref=e213]:
+              - img [ref=e214]
+              - generic [ref=e220]: "0"
+        - generic [ref=e221] [cursor=pointer]:
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - img [ref=e225]
+              - generic [ref=e226]:
+                - generic [ref=e227]:
+                  - text: 张院0205
+                  - generic [ref=e228]: 表白
+                - generic [ref=e230]: 2025/12/11 15:18:32
+            - button [ref=e231]:
+              - img [ref=e232]
+          - paragraph [ref=e237]: 【垃圾广告】各种证件办理，身份证、毕业证、学位证都可以办！
+          - generic [ref=e238]:
+            - button "4" [ref=e239]:
+              - img [ref=e240]
+              - generic [ref=e242]: "4"
+            - button "3" [ref=e243]:
+              - img [ref=e244]
+              - generic [ref=e246]: "3"
+            - button "0" [ref=e247]:
+              - img [ref=e248]
+              - generic [ref=e254]: "0"
+        - generic [ref=e255] [cursor=pointer]:
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - img [ref=e259]
+              - generic [ref=e260]:
+                - generic [ref=e261]:
+                  - text: 张院0205
+                  - generic [ref=e262]: 表白
+                - generic [ref=e264]: 2025/12/10 12:18:32
+            - button [ref=e265]:
+              - img [ref=e266]
+          - paragraph [ref=e271]: 每次在食堂遇见你，我都会故意走你那条路。今天终于鼓起勇气来表白了！💕
+          - generic [ref=e272]:
+            - button "4" [ref=e273]:
+              - img [ref=e274]
+              - generic [ref=e276]: "4"
+            - button "5" [ref=e277]:
+              - img [ref=e278]
+              - generic [ref=e280]: "5"
+            - button "0" [ref=e281]:
+              - img [ref=e282]
+              - generic [ref=e288]: "0"
+        - generic [ref=e289] [cursor=pointer]:
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - generic [ref=e293]: U
+              - generic [ref=e294]:
+                - generic [ref=e295]:
+                  - text: 匿名同学
+                  - generic [ref=e296]: 表白
+                - generic [ref=e298]: 2025/12/7 19:18:32
+            - button [ref=e299]:
+              - img [ref=e300]
+          - generic [ref=e304]:
+            - paragraph [ref=e305]: 你知道吗？每次听到你的声音，我的世界都会变得明亮起来。
+            - generic [ref=e306]:
+              - img [ref=e308]
+              - img [ref=e310]
+              - img [ref=e312]
+          - generic [ref=e313]:
+            - button "4" [ref=e314]:
+              - img [ref=e315]
+              - generic [ref=e317]: "4"
+            - button "0" [ref=e318]:
+              - img [ref=e319]
+              - generic [ref=e321]: "0"
+            - button "0" [ref=e322]:
+              - img [ref=e323]
+              - generic [ref=e329]: "0"
+        - generic [ref=e331]:
+          - button "上一页" [disabled]
+          - generic [ref=e332]: 第 1 / 2 页
+          - button "下一页" [ref=e333] [cursor=pointer]
+      - generic [ref=e334]:
+        - generic [ref=e335]:
+          - generic [ref=e336]:
+            - heading "校园公告" [level=3] [ref=e337]:
+              - img [ref=e338]
+              - text: 校园公告
+            - generic [ref=e341] [cursor=pointer]: 查看更多
+          - generic [ref=e342]:
+            - generic [ref=e343] [cursor=pointer]:
+              - generic [ref=e344]:
+                - generic [ref=e345]: 置顶
+                - generic [ref=e346]: 欢迎来到张家界学院表白墙
+              - paragraph [ref=e347]: 这是一个自由、温暖的社区，请大家文明发言。
+            - generic [ref=e348] [cursor=pointer]:
+              - generic [ref=e350]: 测试通知！
+              - paragraph [ref=e351]: 这是一条测试通知！
+        - generic [ref=e352]:
+          - heading "热门帖子榜" [level=3] [ref=e354]:
+            - img [ref=e355]
+            - text: 热门帖子榜
+          - generic [ref=e357]:
+            - generic [ref=e358] [cursor=pointer]:
+              - generic [ref=e359]: "1"
+              - generic [ref=e360]: 嘿，朋友们，第一次在这里写下这些字，心里还真有点小小的紧张呢。就像推开一扇陌生的门，不知道门后会是怎样的风景。指尖在键盘上停留了片刻，终于还是鼓起勇气，让这些文字轻轻落在屏幕上。希望从今天起，能在这里遇见温暖的故事，和有趣的灵魂。
+              - generic [ref=e361]:
+                - img [ref=e362]
+                - text: "5"
+            - generic [ref=e364] [cursor=pointer]:
+              - generic [ref=e365]: "2"
+              - generic [ref=e366]: 转让一台二手笔记本电脑，配置还不错，适合日常学习使用，价格可议！
+              - generic [ref=e367]:
+                - img [ref=e368]
+                - text: "4"
+            - generic [ref=e370] [cursor=pointer]:
+              - generic [ref=e371]: "3"
+              - generic [ref=e372]: 丢失了一个蓝色保温杯，在篮球场附近，如有拾到请联系我，谢谢！
+              - generic [ref=e373]:
+                - img [ref=e374]
+                - text: "4"
+            - generic [ref=e376] [cursor=pointer]:
+              - generic [ref=e377]: "4"
+              - generic [ref=e378]: 【寻物】在食堂丢失了一把宿舍钥匙，钥匙扣是一只小熊，拾到者请联系我！
+              - generic [ref=e379]:
+                - img [ref=e380]
+                - text: "4"
+            - generic [ref=e382] [cursor=pointer]:
+              - generic [ref=e383]: "5"
+              - generic [ref=e384]: 学校的快递点能不能多开几个窗口？每次取快递都要排长队！
+              - generic [ref=e385]:
+                - img [ref=e386]
+                - text: "4"
+            - generic [ref=e388] [cursor=pointer]:
+              - generic [ref=e389]: "6"
+              - generic [ref=e390]: 暗恋了你三年，今天终于鼓起勇气说出来。如果你也喜欢我，请回复我吧！
+              - generic [ref=e391]:
+                - img [ref=e392]
+                - text: "4"
+            - generic [ref=e394] [cursor=pointer]:
+              - generic [ref=e395]: "7"
+              - generic [ref=e396]: 【求助】有没有人愿意一起组队参加比赛？需要会编程的小伙伴！
+              - generic [ref=e397]:
+                - img [ref=e398]
+                - text: "4"
+            - generic [ref=e400] [cursor=pointer]:
+              - generic [ref=e401]: "8"
+              - generic [ref=e402]: 【求助】有没有人愿意一起组队参加比赛？需要会编程的小伙伴！
+              - generic [ref=e403]:
+                - img [ref=e404]
+                - text: "4"
+            - generic [ref=e406] [cursor=pointer]:
+              - generic [ref=e407]: "9"
+              - generic [ref=e408]: 丢失了一个蓝色保温杯，在篮球场附近，如有拾到请联系我，谢谢！
+              - generic [ref=e409]:
+                - img [ref=e410]
+                - text: "4"
+            - generic [ref=e412] [cursor=pointer]:
+              - generic [ref=e413]: "10"
+              - generic [ref=e414]: 【寻物启事】今天在教学楼A栋丢失了一个黑色钱包，里面有身份证和银行卡，如有拾到请联系我，必有重谢！
+              - generic [ref=e415]:
+                - img [ref=e416]
+                - text: "4"
+            - generic [ref=e418] [cursor=pointer]:
+              - generic [ref=e419]: "11"
+              - generic [ref=e420]: 学校的快递点能不能多开几个窗口？每次取快递都要排长队！
+              - generic [ref=e421]:
+                - img [ref=e422]
+                - text: "4"
+            - generic [ref=e424] [cursor=pointer]:
+              - generic [ref=e425]: "12"
+              - generic [ref=e426]: 学校的快递点能不能多开几个窗口？每次取快递都要排长队！
+              - generic [ref=e427]:
+                - img [ref=e428]
+                - text: "4"
+            - generic [ref=e430] [cursor=pointer]:
+              - generic [ref=e431]: "13"
+              - generic [ref=e432]: 昨天在操场丢失了一副黑框眼镜，对我很重要，如果有人捡到请联系我！
+              - generic [ref=e433]:
+                - img [ref=e434]
+                - text: "4"
+            - generic [ref=e436] [cursor=pointer]:
+              - generic [ref=e437]: "14"
+              - generic [ref=e438]: 每次在食堂遇见你，我都会故意走你那条路。今天终于鼓起勇气来表白了！💕
+              - generic [ref=e439]:
+                - img [ref=e440]
+                - text: "4"
+            - generic [ref=e442] [cursor=pointer]:
+              - generic [ref=e443]: "15"
+              - generic [ref=e444]: 【篮球赛】计算机学院VS经管学院，本周六下午3点，操场见！
+              - generic [ref=e445]:
+                - img [ref=e446]
+                - text: "4"
+            - generic [ref=e448] [cursor=pointer]:
+              - generic [ref=e449]: "16"
+              - generic [ref=e450]: 【求助】有没有人愿意一起组队参加比赛？需要会编程的小伙伴！
+              - generic [ref=e451]:
+                - img [ref=e452]
+                - text: "4"
+            - generic [ref=e454] [cursor=pointer]:
+              - generic [ref=e455]: "17"
+              - generic [ref=e456]: 每次在食堂遇见你，我都会故意走你那条路。今天终于鼓起勇气来表白了！💕
+              - generic [ref=e457]:
+                - img [ref=e458]
+                - text: "3"
+            - generic [ref=e460] [cursor=pointer]:
+              - generic [ref=e461]: "18"
+              - generic [ref=e462]: 转让一台二手笔记本电脑，配置还不错，适合日常学习使用，价格可议！
+              - generic [ref=e463]:
+                - img [ref=e464]
+                - text: "4"
+            - generic [ref=e466] [cursor=pointer]:
+              - generic [ref=e467]: "19"
+              - generic [ref=e468]: 食堂的饭菜又涨价了，学生党表示吃不起啊！😭
+              - generic [ref=e469]:
+                - img [ref=e470]
+                - text: "4"
+            - generic [ref=e472] [cursor=pointer]:
+              - generic [ref=e473]: "20"
+              - generic [ref=e474]: 【求助】谁有《高等数学》的课件？急需，谢谢！
+              - generic [ref=e475]:
+                - img [ref=e476]
+                - text: "4"
+            - generic [ref=e478] [cursor=pointer]:
+              - generic [ref=e479]: "21"
+              - generic [ref=e480]: 想对计算机学院的那个女生说：每次上课看到你认真做笔记的样子，我都觉得特别美好。
+              - generic [ref=e481]:
+                - img [ref=e482]
+                - text: "4"
+            - generic [ref=e484] [cursor=pointer]:
+              - generic [ref=e485]: "22"
+              - generic [ref=e486]: 【篮球赛】计算机学院VS经管学院，本周六下午3点，操场见！
+              - generic [ref=e487]:
+                - img [ref=e488]
+                - text: "4"
+            - generic [ref=e490] [cursor=pointer]:
+              - generic [ref=e491]: "23"
+              - generic [ref=e492]: 丢失了一个蓝色保温杯，在篮球场附近，如有拾到请联系我，谢谢！
+              - generic [ref=e493]:
+                - img [ref=e494]
+                - text: "3"
+            - generic [ref=e496] [cursor=pointer]:
+              - generic [ref=e497]: "24"
+              - generic [ref=e498]: 【求助】谁有《高等数学》的课件？急需，谢谢！
+              - generic [ref=e499]:
+                - img [ref=e500]
+                - text: "4"
+            - generic [ref=e502] [cursor=pointer]:
+              - generic [ref=e503]: "25"
+              - generic [ref=e504]: 【垃圾广告】各种证件办理，身份证、毕业证、学位证都可以办！
+              - generic [ref=e505]:
+                - img [ref=e506]
+                - text: "4"
+            - generic [ref=e508] [cursor=pointer]:
+              - generic [ref=e509]: "26"
+              - generic [ref=e510]: 宿舍楼的网速太慢了，打个游戏都卡成PPT，什么时候能升级一下？
+              - generic [ref=e511]:
+                - img [ref=e512]
+                - text: "4"
+            - generic [ref=e514] [cursor=pointer]:
+              - generic [ref=e515]: "27"
+              - generic [ref=e516]: 【文艺晚会】学院文艺晚会节目征集中，有才艺的同学快来报名！
+              - generic [ref=e517]:
+                - img [ref=e518]
+                - text: "4"
+            - generic [ref=e520] [cursor=pointer]:
+              - generic [ref=e521]: "28"
+              - generic [ref=e522]: 暗恋了你三年，今天终于鼓起勇气说出来。如果你也喜欢我，请回复我吧！
+              - generic [ref=e523]:
+                - img [ref=e524]
+                - text: "4"
+            - generic [ref=e526] [cursor=pointer]:
+              - generic [ref=e527]: "29"
+              - generic [ref=e528]: 致那个在操场跑步的男生：你的笑容真的很治愈，希望有机会认识你。
+              - generic [ref=e529]:
+                - img [ref=e530]
+                - text: "4"
+            - generic [ref=e532] [cursor=pointer]:
+              - generic [ref=e533]: "30"
+              - generic [ref=e534]: 致那个在操场跑步的男生：你的笑容真的很治愈，希望有机会认识你。
+              - generic [ref=e535]:
+                - img [ref=e536]
+                - text: "4"
+            - generic [ref=e538] [cursor=pointer]:
+              - generic [ref=e539]: "31"
+              - generic [ref=e540]: 在体育馆丢失了一个黑色背包，里面有笔记本电脑和课本，拾到者必有重谢！
+              - generic [ref=e541]:
+                - img [ref=e542]
+                - text: "4"
+            - generic [ref=e544] [cursor=pointer]:
+              - generic [ref=e545]: "32"
+              - generic [ref=e546]: 丢失了一个蓝色保温杯，在篮球场附近，如有拾到请联系我，谢谢！
+              - generic [ref=e547]:
+                - img [ref=e548]
+                - text: "4"
+            - generic [ref=e550] [cursor=pointer]:
+              - generic [ref=e551]: "33"
+              - generic [ref=e552]: 【求助】有没有人愿意一起组队参加比赛？需要会编程的小伙伴！
+              - generic [ref=e553]:
+                - img [ref=e554]
+                - text: "4"
+            - generic [ref=e556] [cursor=pointer]:
+              - generic [ref=e557]: "34"
+              - generic [ref=e558]: 昨天在操场丢失了一副黑框眼镜，对我很重要，如果有人捡到请联系我！
+              - generic [ref=e559]:
+                - img [ref=e560]
+                - text: "4"
+            - generic [ref=e562] [cursor=pointer]:
+              - generic [ref=e563]: "35"
+              - generic [ref=e564]: 【寻物】在食堂丢失了一把宿舍钥匙，钥匙扣是一只小熊，拾到者请联系我！
+              - generic [ref=e565]:
+                - img [ref=e566]
+                - text: "4"
+            - generic [ref=e568] [cursor=pointer]:
+              - generic [ref=e569]: "36"
+              - generic [ref=e570]: 【求助】有没有人愿意一起组队参加比赛？需要会编程的小伙伴！
+              - generic [ref=e571]:
+                - img [ref=e572]
+                - text: "4"
+            - generic [ref=e574] [cursor=pointer]:
+              - generic [ref=e575]: "37"
+              - generic [ref=e576]: 【志愿者招募】学校图书馆需要志愿者，有意者请报名，有志愿时长证明！
+              - generic [ref=e577]:
+                - img [ref=e578]
+                - text: "4"
+            - generic [ref=e580] [cursor=pointer]:
+              - generic [ref=e581]: "38"
+              - generic [ref=e582]: 【闲置转让】台式电脑主机，i5处理器，8G内存，适合学习办公，价格实惠！
+              - generic [ref=e583]:
+                - img [ref=e584]
+                - text: "4"
+            - generic [ref=e586] [cursor=pointer]:
+              - generic [ref=e587]: "39"
+              - generic [ref=e588]: 学校的快递点能不能多开几个窗口？每次取快递都要排长队！
+              - generic [ref=e589]:
+                - img [ref=e590]
+                - text: "4"
+            - generic [ref=e592] [cursor=pointer]:
+              - generic [ref=e593]: "40"
+              - generic [ref=e594]: 【垃圾广告】各种证件办理，身份证、毕业证、学位证都可以办！
+              - generic [ref=e595]:
+                - img [ref=e596]
+                - text: "4"
+            - generic [ref=e598] [cursor=pointer]:
+              - generic [ref=e599]: "41"
+              - generic [ref=e600]: 丢失了一个蓝色保温杯，在篮球场附近，如有拾到请联系我，谢谢！
+              - generic [ref=e601]:
+                - img [ref=e602]
+                - text: "4"
+            - generic [ref=e604] [cursor=pointer]:
+              - generic [ref=e605]: "42"
+              - generic [ref=e606]: 毕业甩卖：自行车、台灯、书籍等，价格美丽，先到先得！
+              - generic [ref=e607]:
+                - img [ref=e608]
+                - text: "4"
+            - generic [ref=e610] [cursor=pointer]:
+              - generic [ref=e611]: "43"
+              - generic [ref=e612]: 【志愿者招募】学校图书馆需要志愿者，有意者请报名，有志愿时长证明！
+              - generic [ref=e613]:
+                - img [ref=e614]
+                - text: "4"
+            - generic [ref=e616] [cursor=pointer]:
+              - generic [ref=e617]: "44"
+              - generic [ref=e618]: 你知道吗？每次听到你的声音，我的世界都会变得明亮起来。
+              - generic [ref=e619]:
+                - img [ref=e620]
+                - text: "4"
+            - generic [ref=e622] [cursor=pointer]:
+              - generic [ref=e623]: "45"
+              - generic [ref=e624]: 转让全新耳机，音质超好，原价299，现价150，有意者私聊！
+              - generic [ref=e625]:
+                - img [ref=e626]
+                - text: "3"
+            - generic [ref=e628] [cursor=pointer]:
+              - generic [ref=e629]: "46"
+              - generic [ref=e630]: 【推广】最新网赚项目，躺着赚钱，月入过万不是梦！
+              - generic [ref=e631]:
+                - img [ref=e632]
+                - text: "2"
+            - generic [ref=e634] [cursor=pointer]:
+              - generic [ref=e635]: "47"
+              - generic [ref=e636]: 【讲座通知】本周四晚上7点，学术报告厅，著名教授讲座，欢迎参加！
+              - generic [ref=e637]:
+                - img [ref=e638]
+                - text: "2"
+  - contentinfo [ref=e640]:
+    - generic [ref=e641]:
+      - generic [ref=e642]:
+        - generic [ref=e643]:
+          - heading "张家界学院表白墙" [level=4] [ref=e644]:
+            - img [ref=e645]
+            - text: 张家界学院表白墙
+          - paragraph [ref=e646]: 这里是张家界学院专属的社交平台。我们致力于为同学们提供一个温暖、真实、有趣的交流空间。
+        - generic [ref=e647]:
+          - heading "快速导航" [level=5] [ref=e648]
+          - list [ref=e649]:
+            - listitem [ref=e650]: 关于我们
+            - listitem [ref=e651]: 免责声明
+        - generic [ref=e652]:
+          - heading "友情链接" [level=5] [ref=e653]
+          - list [ref=e654]:
+            - listitem [ref=e655]: 张家界学院官网
+            - listitem [ref=e656]: 教务系统
+        - generic [ref=e657]:
+          - heading "联系我们" [level=5] [ref=e658]
+          - list [ref=e659]:
+            - listitem [ref=e660]: "邮箱: admin@zjjc.edu.cn"
+      - paragraph [ref=e662]: © 2025 张家界学院表白墙. All rights reserved.
+```

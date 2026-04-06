@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.HotwordVoteMapper">
+
+    <!-- 获取用户的投票记录 -->
+    <select id="selectUserVotes" resultType="com.example.dto.VoteRecordVO">
+        SELECT v.id, v.hotword_id as hotwordId, v.vote_count as voteCount, v.create_time as createTime,
+               h.name as hotwordName
+        FROM hotword_vote v
+        LEFT JOIN hotword h ON v.hotword_id = h.id
+        WHERE v.user_id = #{userId}
+        ORDER BY v.create_time DESC
+    </select>
+
+    <!-- 获取热词的投票趋势 -->
+    <select id="selectVoteTrend" resultType="com.example.dto.VoteTrendVO">
+        <choose>
+            <when test="hours == 24">
+                SELECT DATE_FORMAT(create_time, '%H:00') as time,
+                       SUM(vote_count) as votes
+                FROM hotword_vote
+                WHERE hotword_id = #{hotwordId}
+                  AND create_time >= DATE_SUB(NOW(), INTERVAL 24 HOUR)
+                GROUP BY DATE_FORMAT(create_time, '%Y-%m-%d %H')
+                ORDER BY create_time
+            </when>
+            <otherwise>
+                SELECT DATE_FORMAT(create_time, '%m-%d') as time,
+                       SUM(vote_count) as votes
+                FROM hotword_vote
+                WHERE hotword_id = #{hotwordId}
+                  AND create_time >= DATE_SUB(NOW(), INTERVAL #{hours} HOUR)
+                GROUP BY DATE_FORMAT(create_time, '%Y-%m-%d')
+                ORDER BY create_time
+            </otherwise>
+        </choose>
+    </select>
+
+    <!-- 获取热词的学院分布 -->
+    <select id="selectCollegeDistribution" resultType="java.util.Map">
+        SELECT COALESCE(u.college, '未知') as college, COUNT(*) as count
+        FROM hotword_vote v
+        LEFT JOIN sys_user u ON v.user_id = u.id
+        WHERE v.hotword_id = #{hotwordId}
+        GROUP BY u.college
+        ORDER BY count DESC
+    </select>
+
+    <!-- 统计今日投票用户数 -->
+    <select id="countTodayActiveUsers" resultType="java.lang.Long">
+        SELECT COUNT(DISTINCT user_id)
+        FROM hotword_vote
+        WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <!-- 统计总投票数 -->
+    <select id="countTotalVotes" resultType="java.lang.Long">
+        SELECT COALESCE(SUM(vote_count), 0) FROM hotword_vote
+    </select>
+
+    <!-- 获取异常投票用户列表 -->
+    <select id="selectAbnormalVoters" resultType="java.util.Map">
+        SELECT v.user_id as userId, 
+               u.nickname as nickname,
+               u.avatar as avatar,
+               COUNT(*) as voteCount,
+               SUM(v.vote_count) as totalVotes,
+               MIN(v.create_time) as firstVoteTime,
+               MAX(v.create_time) as lastVoteTime
+        FROM hotword_vote v
+        LEFT JOIN sys_user u ON v.user_id = u.id
+        WHERE v.create_time >= DATE_SUB(NOW(), INTERVAL #{hours} HOUR)
+        GROUP BY v.user_id, u.nickname, u.avatar
+        HAVING COUNT(*) >= #{minVotes}
+        ORDER BY voteCount DESC
+    </select>
+
+</mapper>

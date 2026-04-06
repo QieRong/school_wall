@@ -1,0 +1,203 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ["class"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // 主色调 (Primary Colors)
+        primary: {
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)',
+          200: 'var(--color-primary-200)',
+          300: 'var(--color-primary-300)',
+          400: 'var(--color-primary-400)',
+          500: 'var(--color-primary-500)',
+          600: 'var(--color-primary-600)',
+          700: 'var(--color-primary-700)',
+          800: 'var(--color-primary-800)',
+          900: 'var(--color-primary-900)',
+          DEFAULT: 'var(--color-primary-500)',
+        },
+        // 辅助色 (Secondary Colors)
+        secondary: {
+          50: 'var(--color-secondary-50)',
+          100: 'var(--color-secondary-100)',
+          200: 'var(--color-secondary-200)',
+          300: 'var(--color-secondary-300)',
+          400: 'var(--color-secondary-400)',
+          500: 'var(--color-secondary-500)',
+          600: 'var(--color-secondary-600)',
+          700: 'var(--color-secondary-700)',
+          800: 'var(--color-secondary-800)',
+          900: 'var(--color-secondary-900)',
+          DEFAULT: 'var(--color-secondary-500)',
+        },
+        // 状态色 (Status Colors)
+        success: {
+          50: 'var(--color-success-50)',
+          100: 'var(--color-success-100)',
+          500: 'var(--color-success-500)',
+          600: 'var(--color-success-600)',
+          700: 'var(--color-success-700)',
+          DEFAULT: 'var(--color-success-500)',
+        },
+        warning: {
+          50: 'var(--color-warning-50)',
+          100: 'var(--color-warning-100)',
+          500: 'var(--color-warning-500)',
+          600: 'var(--color-warning-600)',
+          700: 'var(--color-warning-700)',
+          DEFAULT: 'var(--color-warning-500)',
+        },
+        error: {
+          50: 'var(--color-error-50)',
+          100: 'var(--color-error-100)',
+          500: 'var(--color-error-500)',
+          600: 'var(--color-error-600)',
+          700: 'var(--color-error-700)',
+          DEFAULT: 'var(--color-error-500)',
+        },
+        info: {
+          50: 'var(--color-info-50)',
+          100: 'var(--color-info-100)',
+          500: 'var(--color-info-500)',
+          600: 'var(--color-info-600)',
+          700: 'var(--color-info-700)',
+          DEFAULT: 'var(--color-info-500)',
+        },
+        // 中性色 (Neutral Colors)
+        gray: {
+          50: 'var(--color-gray-50)',
+          100: 'var(--color-gray-100)',
+          200: 'var(--color-gray-200)',
+          300: 'var(--color-gray-300)',
+          400: 'var(--color-gray-400)',
+          500: 'var(--color-gray-500)',
+          600: 'var(--color-gray-600)',
+          700: 'var(--color-gray-700)',
+          800: 'var(--color-gray-800)',
+          900: 'var(--color-gray-900)',
+        },
+        // 语义化颜色
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
+        card: {
+          DEFAULT: 'var(--color-card)',
+          foreground: 'var(--color-card-foreground)',
+        },
+        border: 'var(--color-border)',
+        input: 'var(--color-input)',
+        ring: 'var(--color-ring)',
+      },
+      // 圆角系统
+      borderRadius: {
+        none: 'var(--radius-none)',
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+        lg: 'var(--radius-lg)',
+        xl: 'var(--radius-xl)',
+        '2xl': 'var(--radius-2xl)',
+        full: 'var(--radius-full)',
+      },
+      // 间距系统
+      spacing: {
+        0: 'var(--spacing-0)',
+        1: 'var(--spacing-1)',
+        2: 'var(--spacing-2)',
+        3: 'var(--spacing-3)',
+        4: 'var(--spacing-4)',
+        5: 'var(--spacing-5)',
+        6: 'var(--spacing-6)',
+        8: 'var(--spacing-8)',
+        10: 'var(--spacing-10)',
+        12: 'var(--spacing-12)',
+        16: 'var(--spacing-16)',
+        20: 'var(--spacing-20)',
+        24: 'var(--spacing-24)',
+      },
+      // 字体系统
+      fontFamily: {
+        sans: 'var(--font-sans)',
+        mono: 'var(--font-mono)',
+      },
+      fontSize: {
+        xs: 'var(--text-xs)',
+        sm: 'var(--text-sm)',
+        base: 'var(--text-base)',
+        lg: 'var(--text-lg)',
+        xl: 'var(--text-xl)',
+        '2xl': 'var(--text-2xl)',
+        '3xl': 'var(--text-3xl)',
+        '4xl': 'var(--text-4xl)',
+        '5xl': 'var(--text-5xl)',
+      },
+      fontWeight: {
+        light: 'var(--font-light)',
+        normal: 'var(--font-normal)',
+        medium: 'var(--font-medium)',
+        semibold: 'var(--font-semibold)',
+        bold: 'var(--font-bold)',
+      },
+      lineHeight: {
+        tight: 'var(--leading-tight)',
+        snug: 'var(--leading-snug)',
+        normal: 'var(--leading-normal)',
+        relaxed: 'var(--leading-relaxed)',
+        loose: 'var(--leading-loose)',
+      },
+      // 阴影系统
+      boxShadow: {
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)',
+        xl: 'var(--shadow-xl)',
+        '2xl': 'var(--shadow-2xl)',
+      },
+      // 动画时长
+      transitionDuration: {
+        fast: 'var(--duration-fast)',
+        normal: 'var(--duration-normal)',
+        slow: 'var(--duration-slow)',
+        slower: 'var(--duration-slower)',
+      },
+      // 缓动函数
+      transitionTimingFunction: {
+        'in': 'var(--ease-in)',
+        'out': 'var(--ease-out)',
+        'in-out': 'var(--ease-in-out)',
+        'bounce': 'var(--ease-bounce)',
+      },
+      // 响应式断点
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
+      // Z-Index 层级系统
+      zIndex: {
+        'base': 'var(--z-base)',
+        'content': 'var(--z-content)',
+        'sticky': 'var(--z-sticky)',
+        'fixed': 'var(--z-fixed)',
+        'header': 'var(--z-header)',
+        'sidebar': 'var(--z-sidebar)',
+        'dropdown': 'var(--z-dropdown)',
+        'announcement': 'var(--z-announcement)',
+        'user-menu': 'var(--z-user-menu)',
+        'popover': 'var(--z-popover)',
+        'tooltip': 'var(--z-tooltip)',
+        'modal-backdrop': 'var(--z-modal-backdrop)',
+        'modal': 'var(--z-modal)',
+        'notification': 'var(--z-notification)',
+        'toast': 'var(--z-toast)',
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+}

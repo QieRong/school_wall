@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StoryMapper">
+
+    <!-- 故事列表查询(带创建者信息) -->
+    <select id="selectStoryList" resultType="com.example.dto.StoryVO">
+        SELECT
+            s.id,
+            s.title,
+            s.category,
+            CASE s.category
+                WHEN 1 THEN '奇幻校园'
+                WHEN 2 THEN '悬疑推理'
+                WHEN 3 THEN '浪漫物语'
+                WHEN 4 THEN '搞笑日常'
+                WHEN 5 THEN '科幻未来'
+                ELSE '未知'
+            END AS categoryName,
+            s.status,
+            CASE s.status
+                WHEN 1 THEN '进行中'
+                WHEN 2 THEN '已完结'
+                WHEN 3 THEN '已归档'
+                ELSE '未知'
+            END AS statusName,
+            s.paragraph_count AS paragraphCount,
+            s.participant_count AS participantCount,
+            s.total_likes AS totalLikes,
+            s.is_recommended AS isRecommended,
+            s.creator_id AS creatorId,
+            u.nickname AS creatorNickname,
+            u.avatar AS creatorAvatar,
+            s.create_time AS createTime,
+            LEFT(s.first_paragraph, 100) AS firstParagraphPreview
+        FROM story s
+        LEFT JOIN sys_user u ON s.creator_id = u.id
+        <where>
+            <if test="category != null">
+                AND s.category = #{category}
+            </if>
+            <if test="status != null">
+                AND s.status = #{status}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (s.title LIKE CONCAT('%', #{keyword}, '%')
+                     OR u.nickname LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY s.is_recommended DESC, s.create_time DESC
+    </select>
+
+    <!-- 查询用户创建的故事 -->
+    <select id="selectMyCreatedStories" resultType="com.example.dto.StoryVO">
+        SELECT
+            s.id,
+            s.title,
+            s.category,
+            CASE s.category
+                WHEN 1 THEN '奇幻校园'
+                WHEN 2 THEN '悬疑推理'
+                WHEN 3 THEN '浪漫物语'
+                WHEN 4 THEN '搞笑日常'
+                WHEN 5 THEN '科幻未来'
+                ELSE '未知'
+            END AS categoryName,
+            s.status,
+            CASE s.status
+                WHEN 1 THEN '进行中'
+                WHEN 2 THEN '已完结'
+                WHEN 3 THEN '已归档'
+                ELSE '未知'
+            END AS statusName,
+            s.paragraph_count AS paragraphCount,
+            s.participant_count AS participantCount,
+            s.total_likes AS totalLikes,
+            s.is_recommended AS isRecommended,
+            s.creator_id AS creatorId,
+            u.nickname AS creatorNickname,
+            u.avatar AS creatorAvatar,
+            s.create_time AS createTime,
+            LEFT(s.first_paragraph, 100) AS firstParagraphPreview
+        FROM story s
+        LEFT JOIN sys_user u ON s.creator_id = u.id
+        WHERE s.creator_id = #{userId}
+        ORDER BY s.create_time DESC
+    </select>
+
+    <!-- 查询用户参与的故事 -->
+    <select id="selectMyParticipatedStories" resultType="com.example.dto.StoryVO">
+        SELECT
+            s.id,
+            s.title,
+            s.category,
+            CASE s.category
+                WHEN 1 THEN '奇幻校园'
+                WHEN 2 THEN '悬疑推理'
+                WHEN 3 THEN '浪漫物语'
+                WHEN 4 THEN '搞笑日常'
+                WHEN 5 THEN '科幻未来'
+                ELSE '未知'
+            END AS categoryName,
+            s.status,
+            CASE s.status
+                WHEN 1 THEN '进行中'
+                WHEN 2 THEN '已完结'
+                WHEN 3 THEN '已归档'
+                ELSE '未知'
+            END AS statusName,
+            s.paragraph_count AS paragraphCount,
+            s.participant_count AS participantCount,
+            s.total_likes AS totalLikes,
+            s.is_recommended AS isRecommended,
+            s.creator_id AS creatorId,
+            u.nickname AS creatorNickname,
+            u.avatar AS creatorAvatar,
+            s.create_time AS createTime,
+            s.update_time AS updateTime,
+            LEFT(s.first_paragraph, 100) AS firstParagraphPreview,
+            sc.paragraph_count AS myParagraphCount,
+            sc.points AS myContribution
+        FROM story s
+        LEFT JOIN sys_user u ON s.creator_id = u.id
+        INNER JOIN story_contribution sc ON s.id = sc.story_id AND sc.user_id = #{userId}
+        ORDER BY s.update_time DESC
+    </select>
+
+    <!-- 查询用户收藏的故事 -->
+    <select id="selectMyFavoriteStories" resultType="com.example.dto.StoryVO">
+        SELECT
+            s.id,
+            s.title,
+            s.category,
+            CASE s.category
+                WHEN 1 THEN '奇幻校园'
+                WHEN 2 THEN '悬疑推理'
+                WHEN 3 THEN '浪漫物语'
+                WHEN 4 THEN '搞笑日常'
+                WHEN 5 THEN '科幻未来'
+                ELSE '未知'
+            END AS categoryName,
+            s.status,
+            CASE s.status
+                WHEN 1 THEN '进行中'
+                WHEN 2 THEN '已完结'
+                WHEN 3 THEN '已归档'
+                ELSE '未知'
+            END AS statusName,
+            s.paragraph_count AS paragraphCount,
+            s.participant_count AS participantCount,
+            s.total_likes AS totalLikes,
+            s.is_recommended AS isRecommended,
+            s.creator_id AS creatorId,
+            u.nickname AS creatorNickname,
+            u.avatar AS creatorAvatar,
+            s.create_time AS createTime,
+            LEFT(s.first_paragraph, 100) AS firstParagraphPreview
+        FROM story s
+        LEFT JOIN sys_user u ON s.creator_id = u.id
+        INNER JOIN story_favorite sf ON s.id = sf.story_id AND sf.user_id = #{userId}
+        ORDER BY sf.create_time DESC
+    </select>
+
+    <!-- 查询故事贡献度排行 -->
+    <select id="selectContributionRank" resultType="com.example.dto.ContributionRankVO">
+        SELECT
+            sc.user_id AS userId,
+            u.nickname,
+            u.avatar,
+            sc.points,
+            sc.paragraph_count AS paragraphCount,
+            sc.like_received AS likeReceived,
+            sc.key_point_count AS keyPointCount
+        FROM story_contribution sc
+        LEFT JOIN sys_user u ON sc.user_id = u.id
+        WHERE sc.story_id = #{storyId}
+        ORDER BY sc.points DESC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- 统计今日新增故事数 -->
+    <select id="countTodayNewStories" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM story
+        WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <!-- 统计各状态故事数 -->
+    <select id="countByStatus" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM story
+        WHERE status = #{status}
+    </select>
+
+</mapper>

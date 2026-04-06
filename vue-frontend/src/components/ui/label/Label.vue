@@ -1,0 +1,20 @@
+<script setup>
+import { Label } from 'radix-vue'
+import { cn } from '@/lib/utils'
+
+const props = defineProps({
+  for: { type: String, default: undefined },
+  asChild: { type: Boolean, default: false },
+  as: { type: String, default: undefined },
+  class: { type: String, default: '' },
+})
+</script>
+
+<template>
+  <Label v-bind="props" :class="cn(
+    'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+    props.class,
+  )">
+    <slot />
+  </Label>
+</template>

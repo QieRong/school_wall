@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BottleMapper">
+
+    <!-- 随机获取一个漂流中且未被珍藏的瓶子（排除自己投放的）
+         status IN (0, 1) 表示漂流中或已被打开但未被珍藏，允许多人打捞 -->
+    <select id="getRandomBottleExcludeUser" resultType="com.example.entity.DriftBottle">
+        SELECT db.*,
+               CASE WHEN db.is_anonymous = 1 THEN NULL ELSE u.nickname END AS nickname,
+               CASE WHEN db.is_anonymous = 1 THEN NULL ELSE u.avatar END AS avatar
+        FROM drift_bottle db
+        LEFT JOIN sys_user u ON db.user_id = u.id
+        WHERE db.status NOT IN (2, 3)
+        AND db.user_id != #{excludeUserId}
+        AND db.expire_time > NOW()
+        ORDER BY RAND()
+        LIMIT 1
+    </select>
+
+    <!-- 获取用户投放的瓶子列表(带回复数) -->
+    <select id="getMySentBottles" resultType="com.example.entity.DriftBottle">
+        SELECT db.*,
+               (SELECT COUNT(*) FROM bottle_reply WHERE bottle_id = db.id) AS replyCount
+        FROM drift_bottle db
+        WHERE db.user_id = #{userId}
+        ORDER BY db.create_time DESC
+    </select>
+
+    <!-- 获取用户珍藏的瓶子列表 -->
+    <select id="getMyCollectedBottles" resultType="com.example.entity.DriftBottle">
+        SELECT db.*,
+               CASE WHEN db.is_anonymous = 1 THEN NULL ELSE u.nickname END AS nickname,
+               CASE WHEN db.is_anonymous = 1 THEN NULL ELSE u.avatar END AS avatar
+        FROM drift_bottle db
+        INNER JOIN bottle_collection bc ON db.id = bc.bottle_id
+        LEFT JOIN sys_user u ON db.user_id = u.id
+        WHERE bc.user_id = #{userId}
+        ORDER BY bc.create_time DESC
+    </select>
+    
+    <!-- 获取瓶子详情(带回复列表) -->
+    <select id="getBottleWithReplies" resultType="com.example.entity.DriftBottle">
+        SELECT db.* FROM drift_bottle db WHERE db.id = #{bottleId}
+    </select>
+    
+    <!-- 管理员查询瓶子列表(支持过滤) -->
+    <select id="getAdminBottleList" resultType="com.example.entity.DriftBottle">
+        SELECT db.*, u.nickname, u.avatar
+        FROM drift_bottle db
+        LEFT JOIN sys_user u ON db.user_id = u.id
+        <where>
+            <if test="status != null">
+                AND db.status = #{status}
+            </if>
+            <if test="direction != null">
+                AND db.direction = #{direction}
+            </if>
+            <if test="startDate != null">
+                AND db.create_time >= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND db.create_time &lt;= #{endDate}
+            </if>
+        </where>
+        ORDER BY db.create_time DESC
+    </select>
+
+</mapper>

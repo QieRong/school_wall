@@ -1,0 +1,815 @@
+{
+  "config": {
+    "configFile": "D:\\桌面\\wall\\vue-frontend\\playwright.config.js",
+    "rootDir": "D:/桌面/wall/vue-frontend/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/桌面/wall/vue-frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/桌面/wall/vue-frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "03-bottle.spec.js",
+      "file": "03-bottle.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "漂流瓶功能模块",
+          "file": "03-bottle.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "03-01: 投放漂流瓶（樱花海岸）",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 41,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16799,
+                      "error": {
+                        "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n",
+                        "stack": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:20:5",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                          "column": 24,
+                          "line": 239
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                            "column": 24,
+                            "line": 239
+                          },
+                          "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n\n\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m\n\u001b[2m    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\u001b[22m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:20:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:47:11.511Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-01-投放漂流瓶（樱花海岸）-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-01-投放漂流瓶（樱花海岸）-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-01-投放漂流瓶（樱花海岸）-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-01-投放漂流瓶（樱花海岸）-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                        "column": 24,
+                        "line": 239
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-9568cd47cdc102abe782",
+              "file": "03-bottle.spec.js",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "03-02: 投放漂流瓶（星辰大海）",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 42,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15241,
+                      "error": {
+                        "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n",
+                        "stack": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:29:5",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                          "column": 24,
+                          "line": 239
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                            "column": 24,
+                            "line": 239
+                          },
+                          "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n\n\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m\n\u001b[2m    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\u001b[22m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:29:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:47:37.550Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-02-投放漂流瓶（星辰大海）-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-02-投放漂流瓶（星辰大海）-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-02-投放漂流瓶（星辰大海）-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-02-投放漂流瓶（星辰大海）-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                        "column": 24,
+                        "line": 239
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-070ee946f46f9a6842de",
+              "file": "03-bottle.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "03-03: 投放漂流瓶（深海秘境）",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 43,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20801,
+                      "error": {
+                        "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n",
+                        "stack": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:38:5",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                          "column": 24,
+                          "line": 239
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                            "column": 24,
+                            "line": 239
+                          },
+                          "message": "Error: locator.click: Error: strict mode violation: locator('button').filter({ hasText: /投入大海|确认投放|投放/ }) resolved to 2 elements:\n    1) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-12 text-lg rounded-xl active:bg-primary-700 bg-white text-sky-700 hover:bg-sky-50 shadow-lg px-8\">…</button> aka getByText('投放瓶子')\n    2) <button data-v-2720681b=\"\" class=\"inline-flex items-center justify-center font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none h-10 px-4 text-base rounded-lg text-white active:bg-primary-700 shadow-sm bg-sky-600 hover:bg-sky-700\">…</button> aka getByRole('button', { name: '投入大海' })\n\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /投入大海|确认投放|投放/ })\u001b[22m\n\n\n\u001b[90m   at \u001b[39mfixtures\\page-objects.js:239\n\n\u001b[0m \u001b[90m 237 |\u001b[39m     \u001b[90m// 点击\"投入大海\"按钮\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mconst\u001b[39m submitButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/投入大海|确认投放|投放/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 239 |\u001b[39m     \u001b[36mawait\u001b[39m submitButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 240 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 241 |\u001b[39m   }\n \u001b[90m 242 |\u001b[39m\u001b[0m\n\u001b[2m    at BottlePage.throwBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:239:24)\u001b[22m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:38:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:48:02.686Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-03-投放漂流瓶（深海秘境）-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-03-投放漂流瓶（深海秘境）-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-03-投放漂流瓶（深海秘境）-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-03-投放漂流瓶（深海秘境）-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                        "column": 24,
+                        "line": 239
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-0ffc5742ec0a05f01997",
+              "file": "03-bottle.spec.js",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "03-04: 打捞漂流瓶",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 44,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 27835,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:52:51",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                          "column": 51,
+                          "line": 52
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 50 |\u001b[39m     \u001b[36mconst\u001b[39m noBottle \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=暂无漂流瓶'\u001b[39m)\u001b[33m.\u001b[39misVisible()\n \u001b[90m 51 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 52 |\u001b[39m     expect(hasSuccess \u001b[33m||\u001b[39m hasCooldown \u001b[33m||\u001b[39m noBottle)\u001b[33m.\u001b[39mtoBeTruthy()\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 53 |\u001b[39m   })\n \u001b[90m 54 |\u001b[39m\n \u001b[90m 55 |\u001b[39m   test(\u001b[32m'03-05: 回复漂流瓶'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                            "column": 51,
+                            "line": 52
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n\u001b[0m \u001b[90m 50 |\u001b[39m     \u001b[36mconst\u001b[39m noBottle \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=暂无漂流瓶'\u001b[39m)\u001b[33m.\u001b[39misVisible()\n \u001b[90m 51 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 52 |\u001b[39m     expect(hasSuccess \u001b[33m||\u001b[39m hasCooldown \u001b[33m||\u001b[39m noBottle)\u001b[33m.\u001b[39mtoBeTruthy()\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 53 |\u001b[39m   })\n \u001b[90m 54 |\u001b[39m\n \u001b[90m 55 |\u001b[39m   test(\u001b[32m'03-05: 回复漂流瓶'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:52:51\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:48:35.828Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-04-打捞漂流瓶-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-04-打捞漂流瓶-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-04-打捞漂流瓶-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-04-打捞漂流瓶-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                        "column": 51,
+                        "line": 52
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-675f3fc13c300ced164e",
+              "file": "03-bottle.spec.js",
+              "line": 44,
+              "column": 3
+            },
+            {
+              "title": "03-05: 回复漂流瓶",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 45,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 28789,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:49:32.073Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-05-回复漂流瓶-chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-0f7a9037db48ac7d29b7",
+              "file": "03-bottle.spec.js",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "03-06: 珍藏漂流瓶",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 45,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 32918,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /打捞瓶子|捞瓶子|打捞/ })\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /打捞瓶子|捞瓶子|打捞/ })\u001b[22m\n\n    at BottlePage.fishBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:246:22)\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:73:22",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                          "column": 22,
+                          "line": 246
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mfixtures\\page-objects.js:246\n\n\u001b[0m \u001b[90m 244 |\u001b[39m     \u001b[90m// 点击\"打捞瓶子\"按钮（支持多种文本）\u001b[39m\n \u001b[90m 245 |\u001b[39m     \u001b[36mconst\u001b[39m fishButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/打捞瓶子|捞瓶子|打捞/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 246 |\u001b[39m     \u001b[36mawait\u001b[39m fishButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 247 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 248 |\u001b[39m   }\n \u001b[90m 249 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                            "column": 22,
+                            "line": 246
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button').filter({ hasText: /打捞瓶子|捞瓶子|打捞/ })\u001b[22m\n\n\n\u001b[90m   at \u001b[39mfixtures\\page-objects.js:246\n\n\u001b[0m \u001b[90m 244 |\u001b[39m     \u001b[90m// 点击\"打捞瓶子\"按钮（支持多种文本）\u001b[39m\n \u001b[90m 245 |\u001b[39m     \u001b[36mconst\u001b[39m fishButton \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/打捞瓶子|捞瓶子|打捞/\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 246 |\u001b[39m     \u001b[36mawait\u001b[39m fishButton\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 247 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\n \u001b[90m 248 |\u001b[39m   }\n \u001b[90m 249 |\u001b[39m\u001b[0m\n\u001b[2m    at BottlePage.fishBottle (D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js:246:22)\u001b[22m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:73:22\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:50:14.414Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-06-珍藏漂流瓶-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-06-珍藏漂流瓶-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-06-珍藏漂流瓶-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-06-珍藏漂流瓶-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\fixtures\\page-objects.js",
+                        "column": 22,
+                        "line": 246
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-a2ab021c12aab53d8d5d",
+              "file": "03-bottle.spec.js",
+              "line": 71,
+              "column": 3
+            },
+            {
+              "title": "03-07: 放回漂流瓶",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 46,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28546,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=放回成功')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=放回成功')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=放回成功')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=放回成功')\u001b[22m\n\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:98:47",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                          "column": 47,
+                          "line": 98
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  96 |\u001b[39m       \n \u001b[90m  97 |\u001b[39m       \u001b[90m// 验证放回成功\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=放回成功'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\n \u001b[90m     |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m     }\n \u001b[90m 100 |\u001b[39m   })\n \u001b[90m 101 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                            "column": 47,
+                            "line": 98
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=放回成功')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=放回成功')\u001b[22m\n\n\n\u001b[0m \u001b[90m  96 |\u001b[39m       \n \u001b[90m  97 |\u001b[39m       \u001b[90m// 验证放回成功\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=放回成功'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\n \u001b[90m     |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m     }\n \u001b[90m 100 |\u001b[39m   })\n \u001b[90m 101 |\u001b[39m\u001b[0m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:98:47\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:51:06.724Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-07-放回漂流瓶-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-07-放回漂流瓶-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-07-放回漂流瓶-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-07-放回漂流瓶-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                        "column": 47,
+                        "line": 98
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-56d1b6bcb268da555ded",
+              "file": "03-bottle.spec.js",
+              "line": 88,
+              "column": 3
+            },
+            {
+              "title": "03-08: 查看我的瓶子",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18810,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:51:52.585Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-08-查看我的瓶子-chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-0ad46c4e41eae69c05ee",
+              "file": "03-bottle.spec.js",
+              "line": 102,
+              "column": 3
+            },
+            {
+              "title": "03-09: 查看珍藏馆",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17502,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:52:16.632Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-09-查看珍藏馆-chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-5002bb11e0c3f0593710",
+              "file": "03-bottle.spec.js",
+              "line": 109,
+              "column": 3
+            },
+            {
+              "title": "03-10: 查看成就",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14562,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:52:37.654Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-10-查看成就-chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-56ce59df190c2a847ba9",
+              "file": "03-bottle.spec.js",
+              "line": 116,
+              "column": 3
+            },
+            {
+              "title": "03-11: 删除自己的瓶子",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 27522,
+                      "error": {
+                        "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"确定\")')\u001b[22m\n",
+                        "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"确定\")')\u001b[22m\n\n    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:134:18",
+                        "location": {
+                          "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                          "column": 18,
+                          "line": 134
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 132 |\u001b[39m       \n \u001b[90m 133 |\u001b[39m       \u001b[90m// 确认删除\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 134 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'button:has-text(\"确定\")'\u001b[39m)\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 135 |\u001b[39m       \n \u001b[90m 136 |\u001b[39m       \u001b[90m// 验证删除成功\u001b[39m\n \u001b[90m 137 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=删除成功'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                            "column": 18,
+                            "line": 134
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"确定\")')\u001b[22m\n\n\n\u001b[0m \u001b[90m 132 |\u001b[39m       \n \u001b[90m 133 |\u001b[39m       \u001b[90m// 确认删除\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 134 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'button:has-text(\"确定\")'\u001b[39m)\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 135 |\u001b[39m       \n \u001b[90m 136 |\u001b[39m       \u001b[90m// 验证删除成功\u001b[39m\n \u001b[90m 137 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=删除成功'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[0m\n\u001b[2m    at D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js:134:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-16T13:52:54.092Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-11-删除自己的瓶子-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-11-删除自己的瓶子-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-11-删除自己的瓶子-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\桌面\\wall\\vue-frontend\\test-results\\03-bottle-漂流瓶功能模块-03-11-删除自己的瓶子-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\桌面\\wall\\vue-frontend\\e2e\\03-bottle.spec.js",
+                        "column": 18,
+                        "line": 134
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8d2fe072010c41215654-c78acc72f7fb870232d0",
+              "file": "03-bottle.spec.js",
+              "line": 124,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-16T13:47:01.235Z",
+    "duration": 384347.983,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

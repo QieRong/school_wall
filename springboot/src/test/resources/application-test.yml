@@ -1,0 +1,49 @@
+# 测试环境配置
+server:
+  port: 9091
+
+spring:
+  datasource:
+    # 使用 H2 内存数据库进行单元测试
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-h2.sql
+      data-locations: classpath:data-h2.sql
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+# 测试环境文件上传路径
+file:
+  upload-path: ${java.io.tmpdir}/test-files/
+
+# 测试环境文件访问基础URL
+fileBaseUrl: http://localhost:9091
+
+# DeepSeek AI 配置 - 测试环境
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:test-api-key}
+  api-url: ${DEEPSEEK_API_URL:https://api.deepseek.com/v1/chat/completions}
+  model: ${DEEPSEEK_MODEL:deepseek-chat}
+  daily-limit: 10
+
+# 日志级别 - 测试时减少输出
+logging:
+  level:
+    root: WARN
+    com.example: INFO
+    org.springframework.test: INFO
