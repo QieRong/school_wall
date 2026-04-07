@@ -60,7 +60,7 @@ public class StoryServiceImpl implements StoryService {
         if (sensitiveFilter.hasSensitiveWord(dto.getTitle()) ||
                 sensitiveFilter.hasSensitiveWord(dto.getContent()) ||
                 (dto.getWorldSetting() != null && sensitiveFilter.hasSensitiveWord(dto.getWorldSetting()))) {
-            throw new BizException("STORY_005", "内容包含敏感词");
+            throw new BizException("STORY_005", "系统检测到违规词汇，系统已拦截");
         }
 
         // 创建故事
@@ -262,7 +262,7 @@ public class StoryServiceImpl implements StoryService {
 
         // 敏感词过滤
         if (sensitiveFilter.hasSensitiveWord(dto.getContent())) {
-            throw new BizException("STORY_005", "内容包含敏感词");
+            throw new BizException("STORY_005", "系统检测到违规词汇，系统已拦截");
         }
 
         // 使用悲观锁锁定故事记录，防止并发冲突

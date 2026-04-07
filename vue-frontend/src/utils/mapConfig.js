@@ -1,13 +1,11 @@
 /**
  * 高德地图配置
  * 统一管理地图API Key和默认配置
- * 密钥通过 Vite 环境变量注入，不在源代码中硬编码
- * 本地开发：复制 .env.local.example 为 .env.local 并填入真实 Key
  */
 
-// 高德地图API Key和Secret，从环境变量读取
-export const AMAP_KEY = import.meta.env.VITE_AMAP_KEY || ''
-export const AMAP_SECRET = import.meta.env.VITE_AMAP_SECRET || ''
+// 高德地图API Key和Secret
+export const AMAP_KEY = ''
+export const AMAP_SECRET = ''
 
 // 默认中心点坐标（张家界学院）
 export const DEFAULT_CENTER = [110.4802, 29.1312]

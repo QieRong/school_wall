@@ -25,6 +25,10 @@ import java.util.List;
 @Service
 public class PostServiceImpl implements PostService {
 
+    // [安全加固] 内存限流容器
+    private static final java.util.concurrent.ConcurrentHashMap<Long, Long> POST_RATE_MAP = new java.util.concurrent.ConcurrentHashMap<>();
+    private static final java.util.concurrent.ConcurrentHashMap<Long, Long> LIKE_RATE_MAP = new java.util.concurrent.ConcurrentHashMap<>();
+
     @Resource
     private PostMapper postMapper;
     @Resource
@@ -37,6 +41,16 @@ public class PostServiceImpl implements PostService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void createPost(Post post) {
+        // [安全加固] 防刷屏限流：单用户30秒内禁止连续发帖
+        if (post.getUserId() != null && post.getUserId() != 0) {
+            Long lastTime = POST_RATE_MAP.get(post.getUserId());
+            long currentTime = System.currentTimeMillis();
+            if (lastTime != null && (currentTime - lastTime) < 30000) {
+                throw new com.example.common.BizException("操作过于频繁，请等待30秒后再发帖");
+            }
+            POST_RATE_MAP.put(post.getUserId(), currentTime);
+        }
+
         // 1. 信誉分检查
         if (post.getUserId() != null && post.getUserId() != 0) {
             User user = userMapper.selectById(post.getUserId());
@@ -147,6 +161,14 @@ public class PostServiceImpl implements PostService {
      */
     @Transactional(rollbackFor = Exception.class)
     public boolean toggleLike(Long postId, Long userId) {
+        // [安全加固] 防刷限流：单用户全局点赞频率限制3秒/次
+        Long lastTime = LIKE_RATE_MAP.get(userId);
+        long currentTime = System.currentTimeMillis();
+        if (lastTime != null && (currentTime - lastTime) < 3000) {
+             throw new com.example.common.BizException("操作过于频繁，请稍后");
+        }
+        LIKE_RATE_MAP.put(userId, currentTime);
+
         // 检查是否已点赞
         int isLiked = postMapper.checkIsLiked(postId, userId);
 

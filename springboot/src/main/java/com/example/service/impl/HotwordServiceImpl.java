@@ -49,7 +49,7 @@ public class HotwordServiceImpl implements HotwordService {
     if (sensitiveFilter.hasSensitiveWord(dto.getName()) ||
         sensitiveFilter.hasSensitiveWord(dto.getDefinition()) ||
         (dto.getExample() != null && sensitiveFilter.hasSensitiveWord(dto.getExample()))) {
-      throw new BizException("内容包含敏感词，请修改后重试");
+      throw new BizException("系统检测到违规词汇，系统已拦截");
     }
 
     Hotword hotword = new Hotword();

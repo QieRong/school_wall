@@ -39,7 +39,10 @@ public class TokenInterceptor implements HandlerInterceptor {
       return false;
     }
 
-    // 3. Token有效，放行
+    // 3. Token有效，将 userId 放进 request，供后续 Controller 鉴权使用
+    request.setAttribute("currentUserId", userId);
+    
+    // 4. 放行
     return true;
   }
 

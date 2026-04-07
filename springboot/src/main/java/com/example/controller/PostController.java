@@ -173,6 +173,12 @@ public class PostController {
      */
     @DeleteMapping("/{id}")
     public Result<?> deletePost(@PathVariable Long id, @RequestParam Long userId) {
+        // [安全加固] 防止前端伪造 userId 进行垂直越权
+        Long currentUserId = com.example.utils.AuthUtil.getCurrentUserId();
+        if (currentUserId != null && !currentUserId.equals(userId) && !isAdmin(currentUserId)) {
+            return Result.error(403, "系统拦截：拦截到非法的越权操作请求。");
+        }
+
         Post post = postMapper.selectById(id, userId);
         if (post == null) {
             return Result.error("帖子不存在");

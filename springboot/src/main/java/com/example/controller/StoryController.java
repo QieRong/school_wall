@@ -250,6 +250,12 @@ public class StoryController {
   public Result<String> deleteStory(
       @PathVariable Long id,
       @RequestParam Long userId) {
+    // [安全加固] 防止前端伪造userId垂直越权删除他人的故事
+    Long currentUserId = com.example.utils.AuthUtil.getCurrentUserId();
+    if (currentUserId != null && !currentUserId.equals(userId)) {
+        return Result.error(403, "系统拦截：拦截到非法的越权操作请求。");
+    }
+
     storyService.deleteStory(id, userId);
     return Result.success("删除成功");
   }

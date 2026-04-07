@@ -83,7 +83,7 @@ public class BottleServiceImpl implements BottleService {
     String filteredContent = sensitiveFilter.filter(content);
     boolean isFlagged = !filteredContent.equals(content);
     if (isFlagged) {
-      throw new BizException("内容包含敏感词，已自动过滤。请检查后重新提交");
+      throw new BizException("系统检测到违规词汇，系统已拦截");
     }
 
     // 4. 方向校验
@@ -179,7 +179,7 @@ public class BottleServiceImpl implements BottleService {
     // 3. 敏感词过滤
     String filteredContent = sensitiveFilter.filter(content);
     if (!filteredContent.equals(content)) {
-      throw new BizException("回复内容包含敏感词，请修改后重试");
+      throw new BizException("系统检测到违规词汇，系统已拦截");
     }
 
     // 4. 创建回复
