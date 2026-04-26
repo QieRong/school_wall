@@ -1,6 +1,7 @@
 # 张家界学院表白墙 🌿
 
 > 基于 Spring Boot 3 + Vue 3 的校园社交平台，集内容创作、实时互动、AI 辅助与社区治理于一体。
+本项目仅供学习参考，严禁任何商业化（也远远达不到那个要求）。
 
 ![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3-brightgreen?style=flat-square&logo=spring)
