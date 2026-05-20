@@ -1,7 +1,7 @@
 # 校园表白墙 🌿
 
 > 基于 Spring Boot 3 + Vue 3 的校园社交平台，集内容创作、实时互动、AI 辅助与社区治理于一体。
-本项目仅供学习参考，严禁任何商业化（也远远达不到那个要求）。
+本项目仅供学习参考，严禁任何商业化和毕设照搬（也远远达不到那个要求）。
 
 ![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3-brightgreen?style=flat-square&logo=spring)
@@ -37,6 +37,8 @@
 **校园表白墙** 是一个面向高校校园用户群体设计与开发的综合性社交平台。平台以"帖子发布与互动"为核心，围绕校园生活场景延伸出多元化的社交功能：包括实时私信聊天、漂流瓶随机社交、协作故事接龙、热词文化墙等特色玩法。
 
 平台融合了 **DeepSeek 大语言模型**，支持 AI 内容润色，并对所有 AI 辅助生成的内容提供透明标识，践行 AI 使用伦理。
+<img width="1366" height="641" alt="PixPin_2026-05-20_16-12-31" src="https://github.com/user-attachments/assets/08943fac-0a10-4ba4-9719-d9ba4c787572" />
+
 
 ### 核心亮点
 
