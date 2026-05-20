@@ -37,7 +37,7 @@
 **校园表白墙** 是一个面向高校校园用户群体设计与开发的综合性社交平台。平台以"帖子发布与互动"为核心，围绕校园生活场景延伸出多元化的社交功能：包括实时私信聊天、漂流瓶随机社交、协作故事接龙、热词文化墙等特色玩法。
 
 平台融合了 **DeepSeek 大语言模型**，支持 AI 内容润色，并对所有 AI 辅助生成的内容提供透明标识，践行 AI 使用伦理。
-<img width="1366" height="641" alt="PixPin_2026-05-20_16-12-31" src="https://github.com/user-attachments/assets/08943fac-0a10-4ba4-9719-d9ba4c787572" />
+<img width="1366" height="641" alt="PixPin_2026-05-20_22-08-45" src="https://github.com/user-attachments/assets/f84e3b2c-5892-45f1-8b7d-319ed92f8374" />
 
 
 ### 核心亮点
