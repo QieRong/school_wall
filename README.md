@@ -4,6 +4,16 @@
 
 项目定位比较明确：它不是商业化产品，也不是可以直接上线运营的成熟系统，更适合作为一个前后端分离项目的学习案例。
 
+## 演示视频
+
+<div align="center">
+  <a href="https://github.com/QieRong/school_wall/blob/main/docs/demo.mp4">
+    <img src="docs/demo-cover.jpg" alt="校园表白墙 · 演示视频" width="780">
+  </a>
+  <br>
+  <sub>55 秒了解核心功能与全栈链路 · 点击封面播放</sub>
+</div>
+
 ## 重要说明
 
 本项目仅供学习、交流和参考使用。
@@ -86,6 +96,7 @@
 school_wall
 ├── springboot        # 后端项目
 ├── vue-frontend      # 前端项目
+├── docs              # 演示视频与封面
 ├── biaobaiqiang.sql  # 数据库脚本
 └── README.md
 ```
