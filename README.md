@@ -6,7 +6,7 @@
 
 ## 演示视频
 
-https://github.com/user-attachments/assets/0be592e2-1a4b-4f29-a2c2-0e09150eeb8a
+https://github.com/user-attachments/assets/305cdb12-6238-4073-a551-405f4d9c75f1
 
 <sub>55 秒速览核心功能与前后端全栈链路</sub>
 
