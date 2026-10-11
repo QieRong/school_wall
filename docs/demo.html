@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>校园表白墙 · 演示视频</title>
+<meta name="description" content="张家界学院 校园表白墙 —— Spring Boot 3 + Vue 3 全栈开源项目，55 秒演示视频。">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#F7F5F0;
+    --fg:#1A2420;
+    --dim:rgba(26,36,32,.62);
+    --green:#1B5E3E;
+    --green-deep:#14472F;
+    --gold:#C9A227;
+    --line:rgba(27,94,62,.16);
+    --shadow:0 18px 48px rgba(26,36,32,.10);
+  }
+  body{
+    background-color:var(--bg);
+    color:var(--fg);
+    font-family:"PingFang SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;
+    padding:40px 20px 56px;
+    background-image:
+      radial-gradient(900px 520px at 12% -8%, rgba(201,162,39,.10), transparent 62%),
+      radial-gradient(760px 480px at 96% 106%, rgba(27,94,62,.09), transparent 60%),
+      linear-gradient(rgba(27,94,62,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,94,62,.045) 1px, transparent 1px);
+    background-size:auto,auto,56px 56px,56px 56px;
+  }
+  header{display:flex;align-items:center;gap:18px;margin-bottom:30px}
+  header img{width:78px;height:78px;filter:drop-shadow(0 6px 16px rgba(26,36,32,.14))}
+  h1{font-size:32px;font-weight:700;letter-spacing:.02em;color:var(--green-deep)}
+  header p{margin-top:6px;font-size:15px;color:var(--dim)}
+
+  main{width:100%;max-width:1020px;display:flex;flex-direction:column;align-items:center}
+
+  .player{
+    width:100%;border-radius:20px;
+    background:#fff;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    padding:10px;
+  }
+  video{display:block;width:100%;height:auto;border-radius:12px;background:#0E1512}
+
+  .caption{margin-top:22px;font-size:17px;color:var(--dim);text-align:center;line-height:1.6}
+  .actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:999px;
+    font-size:15px;font-weight:600;text-decoration:none;
+    border:1.5px solid var(--line);
+    color:var(--green-deep);background:#fff;
+    box-shadow:0 6px 18px rgba(26,36,32,.07);
+    transition:transform .16s ease, box-shadow .16s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,36,32,.12)}
+  .btn.primary{background:linear-gradient(135deg,#1B5E3E,#14472F);color:#fff;border-color:transparent}
+  .btn .dot{color:var(--gold);font-size:12px}
+
+  footer{margin-top:auto;padding-top:44px;font-size:13px;color:rgba(26,36,32,.42)}
+
+  @media (max-width:640px){
+    h1{font-size:24px}
+    header img{width:60px;height:60px}
+    header p{font-size:13px}
+    .player{padding:6px;border-radius:16px}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="张家界学院校徽">
+    <div>
+      <h1>校园表白墙</h1>
+      <p>张家界学院 · Spring Boot 3 + Vue 3 全栈开源项目</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="player">
+      <video controls preload="metadata" playsinline poster="demo-cover.jpg">
+        <source src="demo.mp4" type="video/mp4">
+        您的浏览器不支持 HTML5 视频播放。
+      </video>
+    </div>
+
+    <p class="caption">55 秒了解核心功能与全栈链路 —— 从发一条帖子到数据看板</p>
+
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/QieRong/school_wall" target="_blank" rel="noopener">
+        <span class="dot">&#9670;</span> 查看项目源码
+      </a>
+      <a class="btn" href="demo.mp4" download>下载原片（1080p）</a>
+    </div>
+  </main>
+
+  <footer>校园表白墙 · 开源学习项目</footer>
+</body>
+</html>
