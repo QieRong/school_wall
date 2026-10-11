@@ -7,11 +7,11 @@
 ## 演示视频
 
 <div align="center">
-  <a href="https://github.com/QieRong/school_wall/blob/main/docs/demo.mp4">
+  <a href="https://qierong.github.io/school_wall/demo.html">
     <img src="docs/demo-cover.jpg" alt="校园表白墙 · 演示视频" width="780">
   </a>
   <br>
-  <sub>55 秒了解核心功能与全栈链路 · 点击封面播放</sub>
+  <sub>55 秒了解核心功能与全栈链路 · 点击封面在线播放</sub>
 </div>
 
 ## 重要说明
